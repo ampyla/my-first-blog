@@ -6,19 +6,15 @@
 <body>
 <div>
     <h1> <a href = "">django blog</a>  </h1>
-</div>
-<div>
-    <p>publisher 01.12.2016 16:28</p>
-    <h2>First post</h2>
-    <p> Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh</p>
-</div>
-
-<div>
-    <p>published: 01.12.2016, 12:14</p>
-    <h2> <a href="">My second post</a></h2>
-    <p> Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f</p>
 
 </div>
+{% for post in posts %}
+    <div>
+        <p>publis: {{ post.publish_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
 
 </body>
 
