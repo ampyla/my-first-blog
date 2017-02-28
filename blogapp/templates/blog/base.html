@@ -9,12 +9,26 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
 </head>
 <body>
+
+
 <div class="page-header">
     {% if user.is_authenticated%}
         <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
     {% endif%}
-    <h1><a href="/">Django blog</a></h1>
+    <div class ="top-menu">
+        <section class="top-menu">
+            <ul>
+            {% if username %}
+                <li><a href="/auth/logout/" {{ username }}>Выйти</a></li>
+            {%else%}
+                <li><a href ="/auth/login"Войти>Вход</a></li>
+            {% endif %}
+            </ul>
+        </section>
+
     </div>
+    <h1><a href="/">Django blog</a></h1>
+</div>
     <div class="content container">
         <div class="row">
             <div class="col-md-8">

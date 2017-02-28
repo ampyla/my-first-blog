@@ -10,6 +10,17 @@
     <a class ="bth bth-default" href="{% url 'post_edit' pk=post.pk %}"><span class ="glyphicon glyphicon-pencil"></span></a>
     <h1>{{ post.title }}</h1>
     <p>{{ post.text|linebreaksbr }}</p>
+
+
+    <p>Комментарии</p>
+    {%  for comment in comments %}
+        <p>{{comment.comments_text}}</p>
+    {% endfor %}
+    <form action="/post/{{ post.pk }}/post_edit_comment/" method="POST" class ="post-form">{% csrf_token %}
+
+        {{form}}
+        <button type="submit" class="save bth bth-default">Save</button>
+    </form>
 </div>
 {% endblock %}
 

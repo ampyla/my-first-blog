@@ -2,6 +2,9 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+
+
+
     {% for post in posts %}
         <div class = "post">
             <div class ="date">
@@ -9,6 +12,7 @@
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1>
             <p>{{post.text|linebreaksbr}}</p>
+            <p><a href ="{% url 'addlike' pk=post.pk %}"> Like:{{post.like}}</a></p>
         </div>
     {% endfor %}
 {% endblock content %}

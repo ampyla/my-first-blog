@@ -12,6 +12,7 @@ class Post(models.Model):
         default=timezone.now)
     publish_date = models.DateTimeField(
         blank=True, null=True)
+    like = models.IntegerField(default=0)
 
     def publish(self):
         self.publish_date = timezone.now()
@@ -19,3 +20,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Comments(models.Model):
+    comments_text = models.TextField()
+    comments_post = models.ForeignKey(Post)
